@@ -1,53 +1,81 @@
-//import { useState } from "react";//
-
-import ContactForm from "../ContactForm/ContactForm";
-import SearchBox from "../SearchBox/SearchBox";
-import ContactList from "../ContactList/ContactList";
-import { useState, useEffect } from "react";
-import İnitialData from "../data.json";
-import { nanoid } from "nanoid";
+import { useEffect, useState } from "react";
+import { fetchPhotos } from "../PhotoSearch";
+import SearchBar from "../SearchBar/SearchBar";
+import ImageGallery from "../ImageGallery/ImageGallery";
+import Loader from "../Loader/Loader";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
+import ImageModal from "../ImageModal/ImageModal";
 
 export default function App() {
-  const [data, setData] = useState(() => {
-    const savedData = JSON.parse(window.localStorage.getItem("savedData"));
+  const [photos, setPhotos] = useState([]);
+  const [isLoading, setİsloading] = useState(false);
+  const [error, setError] = useState(false);
+  const [page, setPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [modalİsOpen, setModalİsOpen] = useState(false);
+  const [selectedİmage, setSelectedİmage] = useState(null);
 
-    return savedData ? savedData : İnitialData;
-  });
+  const handleSearch = async (topic) => {
+    setSearchTerm(`${topic}/${Date.now()}`);
 
-  const [filter, setFilter] = useState("");
+    setPage(1);
+    setPhotos([]);
+  };
+
+  const handleClick = () => {
+    setPage(page + 1);
+  };
+  const openModal = (item) => {
+    setSelectedİmage(item);
+    setModalİsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalİsOpen(false);
+  };
 
   useEffect(() => {
-    window.localStorage.setItem("savedData", JSON.stringify(data));
-  }, [data]);
-
-  const addData = (values) => {
-    const newData = {
-      name: values.name,
-      number: values.number,
-      id: nanoid(),
-    };
-
-    setData((prevData) => {
-      return [...prevData, newData];
-    });
-  };
-
-  const deleteData = (dataİd) => {
-    setData((prevData) => {
-      return prevData.filter((data) => data.id !== dataİd);
-    });
-  };
-
-  const filteredData = data.filter((el) =>
-    el.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
-  );
+    if (searchTerm === "") {
+      return;
+    }
+    async function getData() {
+      try {
+        setError(false);
+        setİsloading(true);
+        const data = await fetchPhotos(searchTerm.split("/")[0], page);
+        setPhotos((prevPhotos) => {
+          return [...prevPhotos, ...data];
+        });
+      } catch {
+        setError(true);
+      } finally {
+        setİsloading(false);
+      }
+    }
+    getData();
+  }, [page, searchTerm]);
 
   return (
-    <div>
-      <h1>Phonebook</h1>
-      <ContactForm onAdd={addData} />
-      <SearchBox value={filter} onFilter={setFilter} />
-      <ContactList data={filteredData} onDelete={deleteData} />
-    </div>
+    <>
+      <SearchBar onSearch={handleSearch} />
+      {error && <ErrorMessage />}
+
+      {photos.length > 0 && (
+        <ImageGallery items={photos} onImageClick={openModal} />
+      )}
+
+      <ImageModal
+        isOpen={modalİsOpen}
+        onClose={closeModal}
+        image={selectedİmage}
+      />
+
+      {isLoading && <Loader />}
+
+      {photos.length > 0 && !isLoading && (
+        <LoadMoreBtn handleClick={handleClick} />
+      )}
+    </>
   );
 }
