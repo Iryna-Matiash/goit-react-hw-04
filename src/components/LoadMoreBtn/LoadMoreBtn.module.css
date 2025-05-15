@@ -14,7 +14,7 @@
 } */
 
 
-.container {
+/* .container {
   display: flex;
   justify-content: center;
   margin: 20px 0;
@@ -24,4 +24,29 @@
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+} */
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.button {
+  background-color: #1a237e;
+  /* темно-синій */
+  color: #fff;
+  font-size: 18px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: #283593;
+  /* трохи світліший при наведенні */
 }

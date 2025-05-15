@@ -58,7 +58,7 @@
 
 
 
-.header {
+/* .header {
   padding: 20px;
   background-color: #f8f8f8;
 }
@@ -79,4 +79,88 @@
   margin-left: 10px;
   font-size: 16px;
   cursor: pointer;
+} */
+
+/* .header {
+  background-color: #3f51b5;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.form {
+  width: 100%;
+  max-width: 600px;
+  padding: 0 20px;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #888;
+  font-size: 18px;
+} */
+
+.header {
+  background-color: #3f51b5;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.form {
+  width: 100%;
+  max-width: 600px;
+  padding: 0 20px;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.iconButton {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 18px;
+  color: #666;
 }
