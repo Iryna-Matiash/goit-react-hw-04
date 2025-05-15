@@ -1,18 +1,3 @@
-// import css from "./ImageCard.module.css";
-
-// export default function ImageCard({ item, onClick }) {
-//   return (
-//     <div>
-//       <img
-//         className={css.galleryİmg}
-//         src={item.urls.small}
-//         alt={item.description}
-//         onClick={onClick}
-//       />
-//     </div>
-//   );
-// }
-
 
 import React from 'react';
 import styles from './ImageCard.module.css';
