@@ -1,0 +1,32 @@
+
+/* тут нечего не било */
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    outline: none;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.author {
+    text-align: right;
+    font-size: 14px;
+    color: #555;
+}

@@ -1,4 +1,4 @@
-.searchForm {
+/* .searchForm {
   margin-left: 25px;
   margin-top: 25px;
   display: flex;
@@ -28,4 +28,55 @@
 
 .searchBnt:hover {
   background-color: blueviolet;
+}
+
+
+
+
+.header {
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 16px;
+  cursor: pointer;
+} */
+
+
+
+.header {
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 16px;
+  cursor: pointer;
 }

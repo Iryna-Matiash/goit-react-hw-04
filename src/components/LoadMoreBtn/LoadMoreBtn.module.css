@@ -1,4 +1,4 @@
-.loadMoreBtn {
+/* .loadMoreBtn {
   margin-top: 10px;
   margin-left: 100px;
   padding: 8px 12px;
@@ -11,4 +11,17 @@
 }
 .loadMoreBtn:hover {
   background-color: blueviolet;
+} */
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
